@@ -21,7 +21,7 @@ namespace Creating_Text_File
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
-
+            FrmFileName.SetFileName = txtFileName.Text + ".txt";
         }
     }
 }
