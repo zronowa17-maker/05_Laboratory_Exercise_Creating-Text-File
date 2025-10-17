@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,27 @@ namespace Creating_Text_File
         {
             InitializeComponent();
         }
-    }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+            FrmFileName frm = new FrmFileName();
+            frm.ShowDialog();
+
+           
+            if (!string.IsNullOrEmpty(FrmFileName.SetFileName))
+            {
+                string getInput = txtInput.Text;
+
+                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, FrmFileName.SetFileName)))
+                {
+                    outputFile.WriteLine(getInput);
+                    Console.WriteLine(getInput);
+                }
+            }
+        }
+       
+    } 
 }
+
