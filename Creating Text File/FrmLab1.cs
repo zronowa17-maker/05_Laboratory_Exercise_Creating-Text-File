@@ -20,24 +20,36 @@ namespace Creating_Text_File
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
+           
             FrmFileName frm = new FrmFileName();
             frm.ShowDialog();
 
-           
             if (!string.IsNullOrEmpty(FrmFileName.SetFileName))
             {
                 string getInput = txtInput.Text;
 
+
                 string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+           
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, FrmFileName.SetFileName)))
                 {
                     outputFile.WriteLine(getInput);
                     Console.WriteLine(getInput);
                 }
+
+               
+                MessageBox.Show($"File '{FrmFileName.SetFileName}' successfully created in My Documents.", "Success");
+                txtInput.Clear();
+
+              
+                FrmFileName.SetFileName = null;
             }
         }
-       
-    } 
+    }
 }
+    
+       
+      
+
 
