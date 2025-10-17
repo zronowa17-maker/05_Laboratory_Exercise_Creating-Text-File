@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Creating_Text_File
 {
-    public partial class Form1 : Form
+    public partial class FrmFileName : Form
     {
-        public Form1()
+        public FrmFileName()
         {
             InitializeComponent();
         }
